@@ -1,0 +1,54 @@
+digraph{
+size = "8,8";ratio=fill;node[fontsize=24];labelloc="t";label="example/workflow.xml";
+
+start -> is_capture;
+
+capture [shape=box,style=filled,color=bisque
+];
+
+capture -> is_cleanse;
+
+cleanse [shape=box,style=filled,color=palegoldenrod];
+
+cleanse -> post_process;
+
+complex_math [shape=box,style=filled,color=bisque
+];
+
+complex_math -> join_post_process;
+
+more_complex [shape=box,style=filled,color=dodgerblue1
+];
+
+more_complex -> join_post_process;
+
+geek_candy_process [shape=box,style=filled,color=forestgreen
+];
+
+geek_candy_process -> join_post_process;
+
+post_process [shape=octagon];
+
+post_process -> complex_math;
+
+post_process -> more_complex;
+
+post_process -> geek_candy_process;
+
+join_post_process [shape=octagon];
+
+join_post_process -> end;
+
+is_capture [shape=diamond];
+
+is_capture -> capture[style=bold,label="${wf:conf(capture) == true}",fontsize=20];
+
+is_capture -> is_cleanse[style=dotted,label="default",fontsize=20];
+
+is_cleanse [shape=diamond];
+
+is_cleanse -> cleanse[style=bold,label="${wf:conf(cleanse) == true}",fontsize=20];
+
+is_cleanse -> end[style=dotted,label="default",fontsize=20];
+
+}

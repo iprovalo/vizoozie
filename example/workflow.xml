@@ -1,0 +1,60 @@
+<workflow-app xmlns="uri:oozie:workflow:0.2" name="etl">
+  <start to="is_capture" />
+
+  <decision name="is_capture">
+    <switch>
+      <case to="capture">${wf:conf("capture") == "true"}</case>
+      <default to="is_cleanse" />
+    </switch>
+  </decision>
+
+  <action name="capture">
+    <pig>    </pig>
+    <ok to="is_cleanse" />
+    <error to="fail" />
+  </action>
+  
+  <decision name="is_cleanse">
+    <switch>
+      <case to="cleanse">${wf:conf("cleanse") == "true"}</case>
+      <default to="end" />
+    </switch>
+  </decision>
+
+  <action name="cleanse">
+    <sub-workflow> </sub-workflow>
+    <ok to="post-process" />
+    <error to="fail" />
+  </action>
+
+  <fork name="post-process">
+    <path start="complex-math" />
+    <path start="more-complex" />
+    <path start="geek-candy-process" />
+  </fork>
+
+  <action name="complex-math">
+    <pig>    </pig>
+    <ok to="join-post-process" />
+    <error to="fail" />
+  </action>
+
+  <action name="more-complex">
+    <java>    </java>
+    <ok to="join-post-process" />
+    <error to="fail" />
+  </action>
+
+  <action name="geek-candy-process">
+    <map-reduce>    </map-reduce>
+    <ok to="join-post-process" />
+    <error to="fail" />
+  </action>
+  
+  <join name="join-post-process" to="end" />
+
+  <kill name="fail">   <message>Some error message</message> </kill>
+
+  <end name="end" />
+
+</workflow-app>
