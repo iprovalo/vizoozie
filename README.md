@@ -5,7 +5,7 @@ This script will generate a dot file from an Oozie workflow definition xml file,
 
 Installation (optional, to run the tests):
 ------------
-    python setup.py install
+    sudo python setup.py install
 
 Running Tests
 ------------
