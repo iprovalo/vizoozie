@@ -11,7 +11,7 @@ Running Tests
 ------------
 	python test/test_vizoozie.py
 		
-Running Vizoozie
+Running VizOozie
 ------------
     python vizoozie/vizoozie.py example/workflow.xml example/workflow.dot
 	
