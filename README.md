@@ -28,13 +28,8 @@ Legend:
 
 1. Standard workflow shapes are used for start/end/process/join/fork/decision.
 
-2. Colors for Actions Types (see vizoozie.properties):
+2. Colors for Actions Types are defined in the vizoozie.properties.
 
-java: blue
-map-reduce: green
-fs: gray
-pig: bisque
-ssh: khaki
-sub-workflow: pale golden
+Enjoy!
 
 Ivan
