@@ -14,7 +14,7 @@ Running Vizoozie
 ------------
     python vizoozie/vizoozie.py example/workflow.xml example/workflow.dot
 	
-Dot to Pdf: run graphviz dot program to generate the diagram in pdf or another format (see graphviz dot documentation):
+Dot to Pdf
 ------------
 	dot -Tpdf example/workflow.dot -o example/workflow.pdf
 
