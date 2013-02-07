@@ -2,7 +2,7 @@ vizoozie
 
 This script will generate a dot file from an Oozie workflow definition xml file, which can be converted to pdf or other formats with graphviz dot.  Action colors are configurable in the properties file.  See the colors supported by graphviz dot. 
 
-Installation
+Installation (optional, to run the tests):
 ------------
     python setup.py install
 
